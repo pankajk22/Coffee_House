@@ -1,0 +1,20 @@
+<table>
+
+<tr>
+<% count=0 %>
+<% @coffees.each do |coffee|%>
+
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td><%= image_tag coffee.product_image ,:height=>"100",:width=>"100" %><br />
+Name : <%= coffee.name %><br />
+Description :<%= coffee.description %><br />
+Size : <%= coffee.size %><br />
+Price : <%= coffee.price %>
+<%= button_to 'Add to Cart', line_items_path(:store_id => coffee.id)%> </td>
+<% end %>
+</tr>
+</table>
